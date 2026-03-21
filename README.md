@@ -24,6 +24,8 @@ Unlike many existing Quranic corpora that suffer from incomplete coverage or lim
 * **Manual Verification**
 
   * Multi-stage validation by linguistic experts ensures **high accuracy and consistency**.
+  * Manual verification period: 1 year and 10 months
+  * Sequential validation process: 3 iterative review phases
 
 * **Multi-task Support**
   QAMAR enables:
