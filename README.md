@@ -176,9 +176,10 @@ Contributions are welcome. Possible directions:
 For questions, collaboration, or access requests:
 
 **Sara Faqihi**
-e-mail: sara_faqihi@um5.ac.ma
-PhD Candidate – Arabic NLP
-Mohammed V University, Morocco
+* e-mail: sara_faqihi@um5.ac.ma
+* PhD Candidate – Arabic NLP
+* Mohammadia School of Engineers (EMI)
+* Mohammed V University, Morocco
  
 
 ## ⭐ Acknowledgment
