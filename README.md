@@ -89,7 +89,7 @@ Each Quranic word is represented using the following linguistic layers:
  
 ## 🧠 Linguistic Design Principles
 
-* **Context-aware annotation** (especially for POS)
+* **Context-aware annotation** 
 * **Diacritic-sensitive representation**
 * **Clear separation between stem and lemma**
 * **Explicit handling of particles and non-root words**
