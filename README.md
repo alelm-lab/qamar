@@ -1,7 +1,4 @@
-<h1 align="center">
-  <img src="images/qamar-q.png" alt="Q" height="38" />
-  AMAR: Quranic Arabic Morphological Analysis Resource
-</h1>
+# **<img width="97" height="100" alt="image" src="https://github.com/user-attachments/assets/e5a858ea-0eed-4b4c-bebc-4a2bfdf5a851" /> QAMAR: Quranic Arabic Morphological Analysis Resource**
 
 ## 📖 Overview
 
