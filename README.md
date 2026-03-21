@@ -1,5 +1,8 @@
-# **<img width="97" height="100" alt="image" src="https://github.com/user-attachments/assets/e5a858ea-0eed-4b4c-bebc-4a2bfdf5a851" /> QAMAR: Quranic Arabic Morphological Analysis Resource**
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e5a858ea-0eed-4b4c-bebc-4a2bfdf5a851" alt="QAMAR logo" width="90"/>
+</p>
 
+<h1 align="center">QAMAR: Quranic Arabic Morphological Analysis Resource</h1>
 ## 📖 Overview
 
 **QAMAR (Quranic Arabic Morphological Analysis Resource)** is a comprehensive, fully verified linguistic resource designed to support **Quranic Arabic analysis** and **Arabic Natural Language Processing (NLP)** applications.
