@@ -1,4 +1,4 @@
-##**QAMAR: Quranic Arabic Morphological Analysis Resource**
+## **QAMAR: Quranic Arabic Morphological Analysis Resource**
 
 ## 📖 Overview
 
