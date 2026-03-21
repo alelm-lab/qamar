@@ -77,14 +77,15 @@ QAMAR is built through a **semi-automatic pipeline**:
 
 Each Quranic word is represented using the following linguistic layers:
 
-| Feature     | Description                           |
-| ----------- | ------------------------------------- |
-| **Uthmani** | Original Quranic script               |
-| **MSA**     | Modern Standard Arabic equivalent     |
-| **Stem**    | Core word form without clitics        |
-| **Lemma**   | Base dictionary form                  |
-| **Root**    | Triliteral/quadriliteral root         |
-| **POS**     | Part of Speech (Noun, Verb, Particle) |
+| Feature     | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| **Uthmani** | Original Quranic text (Uthmani script)                                   |
+| **MSA**     | Modern Standard Arabic equivalent                          |
+| **Stem**    | Core word form after removing clitics                      |
+| **Lemma**   | Base dictionary form                                       |
+| **Root**    | Triliteral or quadriliteral root                           |
+| **POS1**    | Tripartite classification (Noun, Verb, Particle)           |
+| **POS2**    | Fine-grained Part of Speech (10 Quran-specific categories) |
  
 ## 🧠 Linguistic Design Principles
 
