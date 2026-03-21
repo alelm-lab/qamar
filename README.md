@@ -1,11 +1,7 @@
 <h1 align="center">
-  <img src="YOUR_TRANSPARENT_Q_ICON.png" alt="Q" width="42" style="vertical-align: middle;" />
+  <img src="images/qamar-q.png" alt="Q" height="38" />
   AMAR: Quranic Arabic Morphological Analysis Resource
 </h1>
-
-<p align="center">
-  A fully verified resource for Quranic Arabic morphological analysis
-</p>
 
 ## 📖 Overview
 
