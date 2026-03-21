@@ -10,7 +10,7 @@ Unlike many existing Quranic corpora that suffer from incomplete coverage or lim
 
 * **Full Coverage of the Qur’an**
 
-  * Includes all Quranic words with consistent annotation.
+  * Includes all Quranic words **(+78k tokens)** with consistent annotation.
 
 * **Rich Morphological Annotation**
   Each word is annotated with:
