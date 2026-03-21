@@ -49,7 +49,7 @@ QAMAR is built through a **semi-automatic pipeline**:
 
 1. **Data Collection**
 
-   * Quranic text (Uthmani script) obtained from reliable sources.
+   * Quranic text (Uthmani script) obtained from Tanzil website.
    * Conversion to MSA-compatible forms.
 
 2. **Automatic Annotation**
