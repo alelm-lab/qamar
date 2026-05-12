@@ -1,0 +1,59 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: qamar_front_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3308:3306"
+    volumes:
+      - qamar_front_mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: qamar_front_web
+    restart: always
+    env_file:
+      - .env
+    expose:
+      - "8000"
+    depends_on:
+      - db
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: qamar_front_nginx
+    restart: always
+    ports:
+      - "8081:80"
+    depends_on:
+      - web
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: qamar_front_phpmyadmin
+    restart: always
+    env_file:
+      - .env
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8082:80"
+    depends_on:
+      - db
+
+volumes:
+  qamar_front_mysql_data:

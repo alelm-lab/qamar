@@ -1,0 +1,39 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0"> 
+<teiHeader>
+    <fileDesc>
+        <titleStmt>
+            <title>QAMAR Corpus</title>
+        </titleStmt>
+    <publicationStmt>
+        <publisher>Mohammadia School of Engineers (EMI), ALELM Research Group, Computer Science Department</publisher>
+    </publicationStmt>
+<sourceDesc>
+<p>The QAMAR Corpus: Original Quranic text in Uthmani script, along with corresponding morphological feature values, including the MSA form, the Stem, the lemma, the root and the pos classification.</p>
+</sourceDesc>
+</fileDesc>
+</teiHeader>
+<text>
+<body>
+<div type="surah" n="1">
+<head>سورة الفاتحة</head>
+<div type="aya" n="1">
+<phr type="ayaText">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</phr>
+<w value="بِسْمِ" type="Uthmani">
+<seg value="بِاسْمِ" type="msa">
+<fs type="linguistic">
+<f name="stem">اسْم</f>
+<f name="lemma">اسْم</f>
+<f name="root">سمو</f>
+<f name="pos">اسم</f>
+<f name="altPos">اسم</f>
+</fs>
+</seg>
+</w>
+...
+</div>
+...
+</div>
+...
+</body>
+</text>
+</TEI>
