@@ -9,10 +9,6 @@ export default function Contact() {
         <div className="infoHero">
 
           {/* cleaned title style */}
-          <h1 className="titleRow">
-            Contact Our Team <span className="arabicTitle">  | اتصل بنا</span>
-          </h1>
-
           <p>
             For questions, collaboration opportunities, access requests, or academic use
             of the QAMAR resource, please contact the project maintainer.

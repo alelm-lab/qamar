@@ -243,14 +243,13 @@ const getHeaderTitle = () => {
 
 return (
   <div className="page">
-<header>
+<header className="siteHeader">
 
-  <button className="menu" onClick={() => setOpen(true)}>
-    <Menu size={18} />Menu
-  </button>
+  <div className="headerLeftLogo">
+    <QLogo />
+  </div>
 
   <div className="headerCenter">
-
     {page === 'home' ? (
       <QLogo />
     ) : (
@@ -258,8 +257,11 @@ return (
         {getHeaderTitle()}
       </h1>
     )}
-
   </div>
+
+  <button className="menu menuRight" onClick={() => setOpen(true)}>
+    <Menu size={18} />Menu
+  </button>
 
 </header>
 

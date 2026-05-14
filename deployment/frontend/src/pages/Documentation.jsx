@@ -59,28 +59,33 @@ function FlipCard({ icon: Icon, titleEn, textEn, titleAr, textAr }) {
 export default function Documentation() {
   return (
     <section className="infoPage">
-      <div className="infoSection infoHeroSection">
-        <div className="infoHero">
-          <h1>QAMAR Resource Documentation</h1>
-          <h1>
-            About QAMAR <span className="arabicTitle">| توثيق مدونة قمر</span>
-          </h1>
+<div className="infoSection infoHeroSection docHeroAcademic">
+  <div className="infoHero">
 
-          <p>
-            QAMAR is a comprehensive, fully verified Quranic Arabic Morphological Analysis
-            Resource designed to support Quranic Arabic analysis and Arabic NLP applications.
-          </p>
+    <div className="heroDivider"></div>
 
-          <div className="docLinks">
-            <a href="https://aclanthology.org/2026.abjadnlp-1.38/" target="_blank" rel="noreferrer">
-              Papers <ExternalLink size={15}/>
-            </a>
-            <a href="https://github.com/alelm-lab/qamar/" target="_blank" rel="noreferrer">
-              GitHub <ExternalLink size={15}/>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className="docLinks">
+      <a
+        href="https://aclanthology.org/2026.abjadnlp-1.38/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FileText size={16}/>
+        Papers
+      </a>
+
+      <a
+        href="https://github.com/alelm-lab/qamar/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <GitBranch size={16}/>
+        GitHub
+      </a>
+    </div>
+
+  </div>
+</div>
 
       <div className="infoSection infoSoftSection sectionDecorated">
         <div className="infoSectionInner schemaSection">

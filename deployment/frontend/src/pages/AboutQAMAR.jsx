@@ -82,28 +82,18 @@ export default function AboutQAMAR() {
 
           {/* REMOVED eyebrow */}
 
-          <h1>
-            About QAMAR <span className="arabicTitle">| حول قمر</span>
-          </h1>
-
           <p>
             QAMAR is a Quranic Arabic Morphological Analysis Resource developed to provide
-            a reliable, manually verified linguistic layer for every Quranic word.
+            a comprehensive high-quality, manually verified morphological layer supporting reliable research, benchmarking, and Arabic NLP.
           </p>
         </div>
       </div>
 
       <div className="infoSection infoWhiteSection">
         <div className="infoSectionInner">
-<LangPanel
-  icon={BookOpen}
-  titleEn="Overview"
-  titleAr="نظرة عامة"
-  textEn="Unlike many existing Quranic corpora that suffer from incomplete coverage or limited validation, QAMAR provides a comprehensive high-quality, manually verified morphological layer supporting reliable research, benchmarking, and Arabic NLP."
-  textAr="على خلاف العديد من المدونات القرآنية الحالية التي تعاني من محدودية التغطية أو ضعف التحقق، يوفر مشروع قمر طبقة صرفية عالية الجودة تم التحقق منها يدويًا لدعم البحث العلمي والتقييم وتطبيقات المعالجة الآلية للغة العربية."
-/>
 
-<div className="infoGrid">
+
+<div className="infoGrid aboutFeatureGrid">
 
   <FlipCard
     icon={Database}
@@ -146,7 +136,7 @@ export default function AboutQAMAR() {
 
     <h2>Use Cases</h2>
 
-    <div className="infoGrid">
+    <div className="infoGrid useCasesGrid">
 
       <FlipCard
         icon={BookOpen}
