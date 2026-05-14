@@ -22,58 +22,82 @@ export default function Contact() {
       </div>
 
       {/* ✅ CLEAN CARD SECTION */}
-      <div className="infoSection infoWhiteSection">
-        <div className="infoSectionInner">
+<div className="infoSection infoWhiteSection">
+  <div className="infoSectionInner">
 
-          <div className="contactCard">
+    <div className="contactCard">
 
-            <div className="contactRow">
-              <UserRound />
-              <div>
-                <h3>Sara Faqihi</h3>
-                <p>PhD Candidate – Arabic NLP</p>
-              </div>
-            </div>
+      {/* PEOPLE */}
+      <div className="contactRow contactPeopleRow">
+        <UserRound />
 
-            <div className="contactDivider"></div>
+        <div className="peopleGrid">
 
-            <div className="contactRow">
-              <Mail />
-              <div>
-                <h3>Email</h3>
-                <p>
-                  <a href="mailto:sara_faqihi@um5.ac.ma">
-                    sara_faqihi@um5.ac.ma
-                  </a>
-                </p>
-              </div>
-            </div>
+          <div className="personBlock">
+            <h3>Karim Bouzoubaa</h3>
+            <p>Full Professor</p>
+          </div>
 
-            <div className="contactDivider"></div>
-
-            <div className="contactRow">
-              <University />
-              <div>
-                <h3>Institution</h3>
-                <p>Mohammadia School of Engineers (EMI)</p>
-                <p>Mohammed V University, Morocco</p>
-              </div>
-            </div>
-
-            <div className="contactDivider"></div>
-
-            <div className="contactRow">
-              <MapPin />
-              <div>
-                <h3>Research Area</h3>
-                <p>Arabic NLP, Quranic Arabic morphology, and linguistic resources</p>
-              </div>
-            </div>
-
+          <div className="personBlock">
+            <h3>Sara Faqihi</h3>
+            <p>PhD Candidate – Arabic NLP</p>
           </div>
 
         </div>
       </div>
+
+      {/* EMAIL */}
+      <div className="contactRow">
+        <Mail />
+
+        <div className="contactContent">
+          <h3>Email</h3>
+
+          <p>
+            <a href="mailto:karim_bouzoubaa@um5.ac.ma">
+              karim_bouzoubaa@um5.ac.ma
+            </a>
+          </p>
+
+          <p>
+            <a href="mailto:sara_faqihi@um5.ac.ma">
+              sara_faqihi@um5.ac.ma
+            </a>
+          </p>
+        </div>
+      </div>
+
+      {/* INSTITUTION */}
+      <div className="contactRow">
+        <University />
+
+        <div className="contactContent">
+          <h3>Institution</h3>
+
+          <p>Mohammadia School of Engineers (EMI)</p>
+
+          <p>Mohammed V University in Rabat, Morocco</p>
+        </div>
+      </div>
+
+      {/* RESEARCH */}
+      <div className="contactRow">
+        <MapPin />
+
+        <div className="contactContent">
+          <h3>Research Area</h3>
+
+          <p>
+            Arabic NLP, Quranic Arabic morphology,
+            and linguistic resources
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
     </section>
   );

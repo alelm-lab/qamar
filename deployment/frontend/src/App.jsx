@@ -16,153 +16,23 @@ import {
 } from 'lucide-react';
 
 import { useEffect, useRef, useState } from 'react';
-import { fetchWords } from './services/api';
-
+import { fetchWords } from './services/api.js';
+import { surahOptions, posOptions } from './data/filterOptions';
+import qamarLogo from './assets/qamar-logo.png';
 import AboutQAMAR from './pages/AboutQAMAR.jsx';
 import Contact from './pages/Contact.jsx';
 import CorrectionForm from './pages/CorrectionForm.jsx';
 import Documentation from './pages/Documentation.jsx';
 
-const surahOptions = [
-  'All Surahs / كل السور',
-  '1. Al-Fatiha / الفاتحة',
-  '2. Al-Baqarah / البقرة',
-  '3. Al-Imran / آل عمران',
-  '4. An-Nisa / النساء',
-  '5. Al-Ma’idah / المائدة',
-  '6. Al-An’am / الأنعام',
-  '7. Al-A’raf / الأعراف',
-  '8. Al-Anfal / الأنفال',
-  '9. At-Tawbah / التوبة',
-  '10. Yunus / يونس',
-  '11. Hud / هود',
-  '12. Yusuf / يوسف',
-  '13. Ar-Ra’d / الرعد',
-  '14. Ibrahim / إبراهيم',
-  '15. Al-Hijr / الحجر',
-  '16. An-Nahl / النحل',
-  '17. Al-Isra / الإسراء',
-  '18. Al-Kahf / الكهف',
-  '19. Maryam / مريم',
-  '20. Ta-Ha / طه',
-  '21. Al-Anbiya / الأنبياء',
-  '22. Al-Hajj / الحج',
-  '23. Al-Mu’minun / المؤمنون',
-  '24. An-Nur / النور',
-  '25. Al-Furqan / الفرقان',
-  '26. Ash-Shu’ara / الشعراء',
-  '27. An-Naml / النمل',
-  '28. Al-Qasas / القصص',
-  '29. Al-Ankabut / العنكبوت',
-  '30. Ar-Rum / الروم',
-  '31. Luqman / لقمان',
-  '32. As-Sajdah / السجدة',
-  '33. Al-Ahzab / الأحزاب',
-  '34. Saba / سبأ',
-  '35. Fatir / فاطر',
-  '36. Ya-Sin / يس',
-  '37. As-Saffat / الصافات',
-  '38. Sad / ص',
-  '39. Az-Zumar / الزمر',
-  '40. Ghafir / غافر',
-  '41. Fussilat / فصلت',
-  '42. Ash-Shura / الشورى',
-  '43. Az-Zukhruf / الزخرف',
-  '44. Ad-Dukhan / الدخان',
-  '45. Al-Jathiyah / الجاثية',
-  '46. Al-Ahqaf / الأحقاف',
-  '47. Muhammad / محمد',
-  '48. Al-Fath / الفتح',
-  '49. Al-Hujurat / الحجرات',
-  '50. Qaf / ق',
-  '51. Adh-Dhariyat / الذاريات',
-  '52. At-Tur / الطور',
-  '53. An-Najm / النجم',
-  '54. Al-Qamar / القمر',
-  '55. Ar-Rahman / الرحمن',
-  '56. Al-Waqi’ah / الواقعة',
-  '57. Al-Hadid / الحديد',
-  '58. Al-Mujadilah / المجادلة',
-  '59. Al-Hashr / الحشر',
-  '60. Al-Mumtahanah / الممتحنة',
-  '61. As-Saff / الصف',
-  '62. Al-Jumu’ah / الجمعة',
-  '63. Al-Munafiqun / المنافقون',
-  '64. At-Taghabun / التغابن',
-  '65. At-Talaq / الطلاق',
-  '66. At-Tahrim / التحريم',
-  '67. Al-Mulk / الملك',
-  '68. Al-Qalam / القلم',
-  '69. Al-Haqqah / الحاقة',
-  '70. Al-Ma’arij / المعارج',
-  '71. Nuh / نوح',
-  '72. Al-Jinn / الجن',
-  '73. Al-Muzzammil / المزمل',
-  '74. Al-Muddaththir / المدثر',
-  '75. Al-Qiyamah / القيامة',
-  '76. Al-Insan / الإنسان',
-  '77. Al-Mursalat / المرسلات',
-  '78. An-Naba / النبأ',
-  '79. An-Nazi’at / النازعات',
-  '80. Abasa / عبس',
-  '81. At-Takwir / التكوير',
-  '82. Al-Infitar / الانفطار',
-  '83. Al-Mutaffifin / المطففين',
-  '84. Al-Inshiqaq / الانشقاق',
-  '85. Al-Buruj / البروج',
-  '86. At-Tariq / الطارق',
-  '87. Al-A’la / الأعلى',
-  '88. Al-Ghashiyah / الغاشية',
-  '89. Al-Fajr / الفجر',
-  '90. Al-Balad / البلد',
-  '91. Ash-Shams / الشمس',
-  '92. Al-Layl / الليل',
-  '93. Ad-Duha / الضحى',
-  '94. Ash-Sharh / الشرح',
-  '95. At-Tin / التين',
-  '96. Al-Alaq / العلق',
-  '97. Al-Qadr / القدر',
-  '98. Al-Bayyinah / البينة',
-  '99. Az-Zalzalah / الزلزلة',
-  '100. Al-Adiyat / العاديات',
-  '101. Al-Qari’ah / القارعة',
-  '102. At-Takathur / التكاثر',
-  '103. Al-Asr / العصر',
-  '104. Al-Humazah / الهمزة',
-  '105. Al-Fil / الفيل',
-  '106. Quraysh / قريش',
-  '107. Al-Ma’un / الماعون',
-  '108. Al-Kawthar / الكوثر',
-  '109. Al-Kafirun / الكافرون',
-  '110. An-Nasr / النصر',
-  '111. Al-Masad / المسد',
-  '112. Al-Ikhlas / الإخلاص',
-  '113. Al-Falaq / الفلق',
-  '114. An-Nas / الناس'
-];
 
-const posOptions = [
-  'All POS / كل الأنواع',
-  'Quranic Particle / حروف قرآنية',
-  'Particle / حرف',
-  'Nominal Verb / اسم فعل',
-  'Verb / فعل',
-  'Allah Name / اسم جلالة',
-  'Attribute Name of Allah / اسم حسن',
-  'Proper Noun / اسم علم',
-  'Demonstrative Noun / اسم إشارة',
-  'Relative Noun / اسم موصول',
-  'Noun / اسم'
-];
 
-function QLogo({ large = false }) {
+function QLogo() {
   return (
-    <div className={large ? 'logo large' : 'logo'}>
-      <span className="qmark">Q</span>
-      <div>
-        <strong>QAMAR</strong>
-        <small>{large ? 'QURANIC ARABIC MORPHOLOGICAL ANALYSIS RESOURCE' : 'MORPHOLOGICAL ANALYSIS RESOURCE'}</small>
-      </div>
+    <div className="logo">
+      <span className="logoMark">
+        <img src={qamarLogo} alt="QAMAR logo" />
+      </span>
+      <strong>AMAR</strong>
     </div>
   );
 }
@@ -187,6 +57,8 @@ function Drawer({ open, onClose, setPage }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+
+
   return (
     <>
       <div className={`shade ${open ? 'show' : ''}`} onClick={onClose} />
@@ -195,12 +67,13 @@ function Drawer({ open, onClose, setPage }) {
         <QLogo />
 
         <nav>
-          <button onClick={() => goTo('documentation')}>
-            <BookOpen /><span>Documentation<small>التوثيق</small></span>
-          </button>
 
           <button onClick={() => goTo('home')}>
-            <Database /><span>API Access<small>واجهة البرمجة</small></span>
+            <Database /><span>QAMAR<small>قمر</small></span>
+          </button>
+
+          <button onClick={() => goTo('documentation')}>
+            <BookOpen /><span>Documentation<small>التوثيق</small></span>
           </button>
 
           <button onClick={() => goTo('about')}>
@@ -329,37 +202,66 @@ const response = await fetchWords({
     }
   };
 const getPageNumbers = () => {
+  if (totalPages <= 1) return [1];
+
   const pages = [];
 
-  if (totalPages <= 7) {
-    for (let i = 1; i <= totalPages; i++) pages.push(i);
-    return pages;
+  const previousPage = currentPage - 1;
+  const nextPage = currentPage + 1;
+
+  if (previousPage >= 1) {
+    pages.push(previousPage);
   }
 
-  pages.push(1);
+  pages.push(currentPage);
 
-  if (currentPage > 3) pages.push('left-dots');
-
-  const start = Math.max(2, currentPage - 1);
-  const end = Math.min(totalPages - 1, currentPage + 1);
-
-  for (let i = start; i <= end; i++) pages.push(i);
-
-  if (currentPage < totalPages - 2) pages.push('right-dots');
-
-  pages.push(totalPages);
+  if (nextPage <= totalPages) {
+    pages.push(nextPage);
+  }
 
   return pages;
 };
 
+const getHeaderTitle = () => {
+  switch (page) {
+    case 'documentation':
+      return 'Documentation';
+
+    case 'about':
+      return 'About QAMAR';
+
+    case 'contact':
+      return 'Contact';
+
+    case 'correction':
+      return 'Correction Form';
+
+    default:
+      return 'QAMAR';
+  }
+};
+
 return (
   <div className="page">
-      <header>
-        <button className="menu" onClick={() => setOpen(true)}>
-          <Menu size={18} />Menu
-        </button>
-        <QLogo />
-      </header>
+<header>
+
+  <button className="menu" onClick={() => setOpen(true)}>
+    <Menu size={18} />Menu
+  </button>
+
+  <div className="headerCenter">
+
+    {page === 'home' ? (
+      <QLogo />
+    ) : (
+      <h1 className="dynamicHeaderTitle">
+        {getHeaderTitle()}
+      </h1>
+    )}
+
+  </div>
+
+</header>
 
       <main>
         {toast && (
@@ -382,120 +284,116 @@ return (
               <Contact />
             ) : (
           <>
-            <section className="hero">
-              <QLogo large />
+<section className="hero">
 
-              <p className="subtitle">
-                <span className="en">Advanced Quranic Arabic Search Platform</span>
-                <span className="sep"></span>
-                <span className="ar">منصة البحث المتقدم في العربية القرآنية</span>
-              </p>
+  <div className="heroWhiteSpace"></div>
 
-              <div className="orn"><i></i><b></b><i></i></div>
+  <div className="stats">
+    <Stat icon={Database} num="77,881" label="TOTAL WORDS" ar="إجمالي الكلمات" />
+    <Stat icon={BookOpen} num="114" label="SURAHS" ar="السور" />
+    <Stat icon={Hash} num="1,661" label="UNIQUE ROOTS" ar="الجذور الفريدة" />
+    <Stat icon={Layers} num="4,600" label="LEMMAS" ar="الفروع" />
+  </div>
 
-              <div className="stats">
-                <Stat icon={Database} num="77,881" label="TOTAL WORDS" ar="إجمالي الكلمات" />
-                <Stat icon={BookOpen} num="114" label="SURAHS" ar="السور" />
-                <Stat icon={Hash} num="1,661" label="UNIQUE ROOTS" ar="الجذور الفريدة" />
-                <Stat icon={Layers} num="4,600" label="LEMMAS" ar="الفروع" />
-              </div>
-            </section>
+  <section className="searchWrap">
+    <div className="searchBox">
+      <Search />
+      <input
+        placeholder="Type your query | اكتب سؤالك"
+        value={searchQuery}
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
+          setCurrentPage(1);
+        }}
+      />
+      <button>Search</button>
+    </div>
+  </section>
 
-            <section className="searchWrap">
-              <div className="searchBox">
-                <Search />
-                <input placeholder="Type your query | اكتب سؤالك" value={searchQuery}
-                          onChange={(e) => {
-                          setSearchQuery(e.target.value);
-                          setCurrentPage(1);
-                  }}
-                />
-                <button>Search</button>
-              </div>
-            </section>
+</section>
 
-            <section className="filters" ref={filtersRef}>
-              <div className="filterTitle">
-                <Filter size={18} className="filterIcon" />
-                FILTERS <em>/ فلاتر</em>
-              </div>
+<section className="filters" ref={filtersRef}>
+  <div className="filterTitle">
+    <Filter size={18} className="filterIcon" />
+    FILTERS <em>/ فلاتر</em>
+  </div>
 
-              <div className="filterRow">
-                <div className="filterBox">
-                  <button
-                    className={activeFilter === 'surah' ? 'filterBtn active' : 'filterBtn'}
-                    onClick={() => setActiveFilter(activeFilter === 'surah' ? null : 'surah')}
-                  >
-                    {selectedSurah} <ChevronDown size={17} />
-                  </button>
+  <div className="filterRow">
+    <div className="filterBox">
+      <button
+        className={activeFilter === 'surah' ? 'filterBtn active' : 'filterBtn'}
+        onClick={() => setActiveFilter(activeFilter === 'surah' ? null : 'surah')}
+      >
+        {selectedSurah} <ChevronDown size={17} />
+      </button>
 
-                  {activeFilter === 'surah' && (
-                    <div className="dropdownMenu surahMenu">
-                      {surahOptions.map((surah) => (
-                        <div
-                          className="dropdownItem"
-                          key={surah}
-                          onClick={() => {
-                            setSelectedSurah(surah);
-                            setCurrentPage(1);
-                            setActiveFilter(null);
-                          }}
-                        >
-                          {surah}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+      {activeFilter === 'surah' && (
+        <div className="dropdownMenu surahMenu">
+          {surahOptions.map((surah) => (
+            <div
+              className="dropdownItem"
+              key={surah}
+              onClick={() => {
+                setSelectedSurah(surah);
+                setCurrentPage(1);
+                setActiveFilter(null);
+              }}
+            >
+              {surah}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
 
-                <div className="filterBox">
-                  <button
-                    className={activeFilter === 'pos' ? 'filterBtn active' : 'filterBtn'}
-                    onClick={() => setActiveFilter(activeFilter === 'pos' ? null : 'pos')}
-                  >
-                    {selectedPos} <ChevronDown size={17} />
-                  </button>
+    <div className="filterBox">
+      <button
+        className={activeFilter === 'pos' ? 'filterBtn active' : 'filterBtn'}
+        onClick={() => setActiveFilter(activeFilter === 'pos' ? null : 'pos')}
+      >
+        {selectedPos} <ChevronDown size={17} />
+      </button>
 
-                  {activeFilter === 'pos' && (
-                    <div className="dropdownMenu">
-                      {posOptions.map((pos) => (
-                        <div
-                          className="dropdownItem"
-                          key={pos}
-                          onClick={() => {
-                            setSelectedPos(pos);
-                            setCurrentPage(1);
-                            setActiveFilter(null);
-                          }}
-                        >
-                          {pos}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+      {activeFilter === 'pos' && (
+        <div className="dropdownMenu">
+          {posOptions.map((pos) => (
+            <div
+              className="dropdownItem"
+              key={pos}
+              onClick={() => {
+                setSelectedPos(pos);
+                setCurrentPage(1);
+                setActiveFilter(null);
+              }}
+            >
+              {pos}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
 
-                <input
-                  className="filterInput"
-                  placeholder="Root / الجذر"
-                  value={rootQuery}
-                  onChange={(e) => {
-                    setRootQuery(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                />
+    <input
+      className="filterInput"
+      placeholder="Root / الجذر"
+      value={rootQuery}
+      onChange={(e) => {
+        setRootQuery(e.target.value);
+        setCurrentPage(1);
+      }}
+    />
 
-                <input
-                  className="filterInput"
-                  placeholder="Lemma / الفرع"
-                  value={lemmaQuery}
-                  onChange={(e) => {
-                    setLemmaQuery(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                />
-              </div>
-            </section>
+    <input
+      className="filterInput"
+      placeholder="Lemma / الفرع"
+      value={lemmaQuery}
+      onChange={(e) => {
+        setLemmaQuery(e.target.value);
+        setCurrentPage(1);
+      }}
+    />
+  </div>
+</section>
 
             <section className="results">
               <div className="resTop">
@@ -608,7 +506,7 @@ return (
                     <td className="arabic">{r.lemma}</td>
                     <td><span className="root">{r.root}</span></td>
                     <td><span className="tag">{r.pos1}</span></td>
-                    <td>{r.pos2}</td>
+                    <td className="arabic">{r.pos2}</td>
                     <td>
                       <button className="edit" onClick={() => openCorrectionPage(r)}>
                         <Edit2 size={16} /> Edit
@@ -653,6 +551,10 @@ return (
               </div>
             </section>
 
+
+          </>
+        )}
+      </main>
             <footer className="footer">
               <div className="footerOrn"><i></i><b></b><i></i></div>
               <h3>QAMAR — Quranic Arabic Morphological Analysis Resource</h3>
@@ -660,10 +562,6 @@ return (
               <div className="footerOrn small"><i></i><b></b><i></i></div>
               <small>© 2026 QAMAR Research Project. All rights reserved.</small>
             </footer>
-          </>
-        )}
-      </main>
-
       <Drawer open={open} onClose={() => setOpen(false)} setPage={setPage} />
     </div>
   );

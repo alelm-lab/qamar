@@ -17,7 +17,7 @@ function FlipCard({ icon: Icon, titleEn, textEn, titleAr, textAr }) {
               setFlipped(true);
             }}
           >
-            Ar
+            ع
           </button>
 
           <Icon />
@@ -59,7 +59,7 @@ function LangPanel({ icon: Icon, titleEn, textEn, titleAr, textAr, childrenEn, c
         className="panelLangToggle"
         onClick={() => setLang(isArabic ? 'en' : 'ar')}
       >
-        {isArabic ? 'En' : 'Ar'}
+        {isArabic ? 'En' : 'ع'}
       </button>
 
       <Icon />
@@ -99,7 +99,7 @@ export default function AboutQAMAR() {
   icon={BookOpen}
   titleEn="Overview"
   titleAr="نظرة عامة"
-  textEn="Unlike many existing Quranic corpora that suffer from incomplete coverage or limited validation, QAMAR provides a high-quality, manually verified morphological layer supporting reliable research, benchmarking, and Arabic NLP."
+  textEn="Unlike many existing Quranic corpora that suffer from incomplete coverage or limited validation, QAMAR provides a comprehensive high-quality, manually verified morphological layer supporting reliable research, benchmarking, and Arabic NLP."
   textAr="على خلاف العديد من المدونات القرآنية الحالية التي تعاني من محدودية التغطية أو ضعف التحقق، يوفر مشروع قمر طبقة صرفية عالية الجودة تم التحقق منها يدويًا لدعم البحث العلمي والتقييم وتطبيقات المعالجة الآلية للغة العربية."
 />
 
@@ -141,7 +141,6 @@ export default function AboutQAMAR() {
         </div>
       </div>
 
-<div className="infoSection infoSoftSection sectionDecorated">
 <div className="infoSection infoSoftSection sectionDecorated">
   <div className="infoSectionInner docSection">
 
@@ -201,7 +200,7 @@ export default function AboutQAMAR() {
 
   </div>
 </div>
-</div>
+
 
 <div className="infoSection infoWhiteSection">
   <div className="infoSectionInner">

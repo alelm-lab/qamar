@@ -67,7 +67,6 @@ const handleSubmit = async (e) => {
           </p>
 
           <p>
-            <Hash size={16} />
             Line:
             <span>{selectedWord?.number || '1'}</span>
           </p>

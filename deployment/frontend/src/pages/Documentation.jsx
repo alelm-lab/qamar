@@ -26,7 +26,7 @@ function FlipCard({ icon: Icon, titleEn, textEn, titleAr, textAr }) {
               setFlipped(true);
             }}
           >
-            Ar
+            ع
           </button>
 
           <Icon />
@@ -73,99 +73,11 @@ export default function Documentation() {
 
           <div className="docLinks">
             <a href="https://aclanthology.org/2026.abjadnlp-1.38/" target="_blank" rel="noreferrer">
-              Paper <ExternalLink size={15}/>
+              Papers <ExternalLink size={15}/>
             </a>
             <a href="https://github.com/alelm-lab/qamar/" target="_blank" rel="noreferrer">
-              GitHub Resource <ExternalLink size={15}/>
+              GitHub <ExternalLink size={15}/>
             </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="softWaveTop"></div>
-
-      <div className="infoSection infoFeatureSection sectionDecorated">
-        <div className="infoSectionInner">
-          <div className="infoGrid">
-            <FlipCard
-              icon={BookOpen}
-              titleEn="Full Quran Coverage"
-              textEn="Includes all Quranic words, more than 78k tokens, with consistent annotation."
-              titleAr="تغطية كاملة للقرآن"
-              textAr="يشمل جميع كلمات القرآن الكريم، بما يزيد عن 78 ألف وحدة نصية، مع وسم صرفي متسق."
-            />
-
-            <FlipCard
-              icon={Layers}
-              titleEn="Rich Morphological Annotation"
-              textEn="Each word is annotated with MSA equivalent, stem, lemma, root, and POS."
-              titleAr="وسم صرفي غني"
-              textAr="تُوسَم كل كلمة بما يقابلها في العربية الفصحى المعاصرة، والجذع، والفرع، والجذر، وأجزاء الكلام."
-            />
-
-            <FlipCard
-              icon={ShieldCheck}
-              titleEn="Manual Verification"
-              textEn={
-                <>
-                  Validated by linguistic experts over{' '}
-                  <span className="highlightDuration">1 year and 10 months</span>{' '}
-                  through 3 review phases.
-                </>
-              }
-              titleAr="تحقق يدوي"
-              textAr="تم التحقق من المورد من طرف خبراء لغويين على مدى سنة و10 أشهر عبر 3 مراحل مراجعة."
-            />
-
-            <FlipCard
-              icon={Brain}
-              titleEn="Benchmarking Resource"
-              textEn="Useful for Quranic NLP, morphological analysis evaluation, and LLM hallucination analysis."
-              titleAr="مورد مرجعي للتقييم"
-              textAr="يفيد في معالجة القرآن آلياً، وتقييم التحليل الصرفي، وتحليل هلوسة النماذج اللغوية الكبيرة."
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="softWaveBottom"></div>
-
-      <div className="infoSection infoWhiteSection">
-        <div className="infoSectionInner docSection">
-          <h2>Resource Construction</h2>
-
-          <div className="timelineGrid">
-            <FlipCard
-              icon={GitBranch}
-              titleEn="1. Data Collection"
-              textEn="Quranic text in Uthmani script was obtained from Tanzil and converted to MSA-compatible forms."
-              titleAr="1. جمع البيانات"
-              textAr="تم الحصول على النص القرآني بالرسم العثماني من موقع تنزيل، ثم تحويله إلى صيغ متوافقة مع العربية الفصحى المعاصرة."
-            />
-
-            <FlipCard
-              icon={Database}
-              titleEn="2. Automatic Annotation"
-              textEn="Initial annotations were generated using SAFAR tools for normalization, lemmatization, root extraction, and POS tagging."
-              titleAr="2. الوسم الآلي"
-              textAr="تم توليد الوسوم الأولية باستخدام أدوات SAFAR للتطبيع، واستخراج الفروع، والجذور، ووسم أجزاء الكلام."
-            />
-
-            <FlipCard
-              icon={ShieldCheck}
-              titleEn="3. Manual Verification"
-              textEn="Expert linguists performed iterative validation through multiple review cycles."
-              titleAr="3. التحقق اليدوي"
-              textAr="قام خبراء لغويون بمراجعة الوسوم والتحقق منها عبر دورات مراجعة متعددة لضمان الدقة والاتساق."
-            />
-
-            <FlipCard
-              icon={FileText}
-              titleEn="4. Schema Design"
-              textEn="The schema was standardized for both human readability and computational processing."
-              titleAr="4. تصميم المخطط"
-              textAr="تم توحيد مخطط الوسم ليكون مناسباً للقراءة البشرية والمعالجة الحاسوبية في الوقت نفسه."
-            />
           </div>
         </div>
       </div>
